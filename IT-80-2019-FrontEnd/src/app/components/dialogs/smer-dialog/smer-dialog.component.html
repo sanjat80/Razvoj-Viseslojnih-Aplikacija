@@ -1,0 +1,24 @@
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje smera</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2">Modifikacija smera {{data.naziv}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3">Brisanje smera {{data.naziv}}</h3>
+
+    <form class="mat-dialog-content" #formControl="ngForm">
+        <div class="content">
+            <mat-form-field>
+                <input matInput placeholder="Naziv" [disabled]="flag ==3" name="Naziv"  [(ngModel)]="data.naziv" required/>
+            </mat-form-field>
+        </div>
+        <div class="content">
+            <mat-form-field>
+                <input matInput placeholder="Oznaka" [disabled]="flag ==3" [(ngModel)]="data.oznaka" name="Oznaka" required/>
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="mat-dialog-actions">
+        <button mat-button *ngIf="flag == 1" type="submit" [disabled]="!formControl.valid" mat-dialog-close="1" (click)="add()">Sacuvaj</button>
+        <button mat-button *ngIf="flag == 2" type="submit" [disabled]="!formControl.valid" mat-dialog-close="1" (click)="update()">Azuriraj</button>
+        <button mat-button *ngIf="flag == 3" mat-dialog-close="1" (click)="delete()">Obrisi</button>
+        <button mat-button (click)="cancel()">Ponisti</button>
+    </div>
+</div>

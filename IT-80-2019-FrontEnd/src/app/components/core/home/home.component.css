@@ -1,0 +1,15 @@
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family:'Times New Roman', Times, serif;
+    color: black;
+    font-size: 1.5cm;
+    margin-top: 150px;
+  }
+
+  .wrapper {
+      margin: 0 auto;
+      display: block;
+  }
